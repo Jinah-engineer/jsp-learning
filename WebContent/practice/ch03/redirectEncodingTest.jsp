@@ -1,13 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*" %>
-<% request.setCharacterEncoding("utf-8"); %>
+<%@ page import = "java.net.URLEncoder" %>
 
 <%
-	String id = request.getParameter("memberId");
-	if (id != null && id.equals("madvirus")) {
-		response.sendRedirect("index.jsp");
-	} else {
+	String value = "자바";
+	String encodedValue = URLEncoder.encode(value, "utf-8");
+	response.sendRedirect("index.jsp?name=" + encodedValue);
 %>
+
+<% request.setCharacterEncoding("utf-8"); %>
 
 <!DOCTYPE html>
 <html>
@@ -20,11 +21,7 @@
 </head>
 <body>
 	<div class="container">
-	잘못된 아이디입니다.	
+		리다이렉트에 실패했습니다.
 	</div>
 </body>
 </html>
-
-<%
-	}
-%>

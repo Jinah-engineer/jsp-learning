@@ -2,13 +2,6 @@
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
 
-<%
-	String id = request.getParameter("memberId");
-	if (id != null && id.equals("madvirus")) {
-		response.sendRedirect("index.jsp");
-	} else {
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,11 +13,11 @@
 </head>
 <body>
 	<div class="container">
-	잘못된 아이디입니다.	
+		<h1>이 파일은 actionTag 1번 파일입니다.</h1>
+		
+		<jsp:include page="include-actionTag2.jsp" />
+		
+		<h1>이 파일은 actionTag 1번 파일입니다.</h1>
 	</div>
 </body>
 </html>
-
-<%
-	}
-%>

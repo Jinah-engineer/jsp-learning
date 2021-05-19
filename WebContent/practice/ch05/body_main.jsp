@@ -2,13 +2,6 @@
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
 
-<%
-	String id = request.getParameter("memberId");
-	if (id != null && id.equals("madvirus")) {
-		response.sendRedirect("index.jsp");
-	} else {
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,11 +13,17 @@
 </head>
 <body>
 	<div class="container">
-	잘못된 아이디입니다.	
+		include 전 name 파라미터 값 : <%= request.getParameter("name") %>
+		
+		<hr>
+		
+		<jsp:include page="body_sub.jsp">
+			<jsp:param name="name" value="박진아" />
+		</jsp:include>
+		
+		<hr/>
+		
+		include 후 name 파라미터 값 : <%= request.getParameter("name") %>
 	</div>
 </body>
 </html>
-
-<%
-	}
-%>

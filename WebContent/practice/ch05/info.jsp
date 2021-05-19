@@ -2,13 +2,6 @@
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
 
-<%
-	String id = request.getParameter("memberId");
-	if (id != null && id.equals("madvirus")) {
-		response.sendRedirect("index.jsp");
-	} else {
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,15 +9,22 @@
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Info</title>
 </head>
 <body>
 	<div class="container">
-	잘못된 아이디입니다.	
+		
+		<table width="100%" border="1" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>제품번호</td>
+				<td>XXXX</td>
+			</tr>
+		</table>
+		
+		<jsp:include page="infoSub.jsp">
+			<jsp:param name="type" value="A" />
+		</jsp:include>
+		
 	</div>
 </body>
 </html>
-
-<%
-	}
-%>

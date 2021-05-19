@@ -2,13 +2,6 @@
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
 
-<%
-	String id = request.getParameter("memberId");
-	if (id != null && id.equals("madvirus")) {
-		response.sendRedirect("index.jsp");
-	} else {
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,11 +13,13 @@
 </head>
 <body>
 	<div class="container">
-	잘못된 아이디입니다.	
+	
+		<h1>구구단 3단을 출력해보자</h1>
+		
+		<%
+			int dan = 3;
+		%>
+		
 	</div>
 </body>
 </html>
-
-<%
-	}
-%>

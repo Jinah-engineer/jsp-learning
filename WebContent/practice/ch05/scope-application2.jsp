@@ -2,13 +2,6 @@
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
 
-<%
-	String id = request.getParameter("memberId");
-	if (id != null && id.equals("madvirus")) {
-		response.sendRedirect("index.jsp");
-	} else {
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,11 +13,11 @@
 </head>
 <body>
 	<div class="container">
-	잘못된 아이디입니다.	
+		<h1>Attribute 꺼내보기</h1>
+		
+		<h3><%= request.getAttribute("reqAttr1") %></h3>
+		<h3><%= session.getAttribute("session-attr1") %></h3>
+		<h3><%= application.getAttribute("app-attr1") %></h3>
 	</div>
 </body>
 </html>
-
-<%
-	}
-%>

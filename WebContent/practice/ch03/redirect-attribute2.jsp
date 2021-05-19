@@ -2,13 +2,6 @@
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
 
-<%
-	String id = request.getParameter("memberId");
-	if (id != null && id.equals("madvirus")) {
-		response.sendRedirect("index.jsp");
-	} else {
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,11 +13,11 @@
 </head>
 <body>
 	<div class="container">
-	잘못된 아이디입니다.	
+		<h1>여기는 redirect-attribute2 JSP 파일입니다.</h1>
+		<%
+			Calendar date = (Calendar) request.getAttribute("date");
+			out.print(date);
+		%>
 	</div>
 </body>
 </html>
-
-<%
-	}
-%>

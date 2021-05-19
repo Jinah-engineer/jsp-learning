@@ -2,13 +2,6 @@
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
 
-<%
-	String id = request.getParameter("memberId");
-	if (id != null && id.equals("madvirus")) {
-		response.sendRedirect("index.jsp");
-	} else {
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,11 +13,7 @@
 </head>
 <body>
 	<div class="container">
-	잘못된 아이디입니다.	
+	아이디가 일치하여 인덱스 페이지에 접근 성공했습니다.		
 	</div>
 </body>
 </html>
-
-<%
-	}
-%>
