@@ -6,13 +6,21 @@
 
 <% request.setCharacterEncoding("utf-8"); %>
 
-<%
-	Book book = new Book();
-	book.setTitle("자바책");
-	book.setWriter("신용권");
-	
-	request.setAttribute("book1", book);
-%>
+<%-- JavaBean 객체 생성 (setAttribute) --%>
+<%-- 
+	지정한 영역에 이미 id 속성에서 지정한 이름의 속성값이 존재하면,
+	객체를 새로 생성하지 않고,
+	*** 기존에 존재하는 객체를 그대로 사용한다 ***
+ --%>
+<jsp:useBean id="book1" class="ch08.Book" scope="request" />
+
+<%-- setProperty --%>
+<%-- book.setTitle() , book.setWriter() 부분과 같다 --%>
+<%--
+	생성한 자바빈 객체의 property 값을 변경한다.
+ --%>
+<jsp:setProperty name="book1" property="title" value="책" />
+<jsp:setProperty name="book1" property="writer" value="저자" />
 
 <!DOCTYPE html>
 <html>
@@ -25,13 +33,26 @@
 </head>
 <body>
 	<div class="container">
+		
 		<%
-			Book book1 = (Book) request.getAttribute("book1");
+			Book book = (Book) request.getAttribute("book1");
 		%>
 		
-		제목 : <%= book1.getTitle() %> <br>
-		저자 : <%= book1.getWriter() %> <br>
+		book : <%= book != null %>
 		
+		<br>
+		
+		제목 : <%= book.getTitle() %>
+		<br>
+		저자 : <%= book.getWriter() %>
+		
+		<hr>
+		
+		<h3>getProperty Tag</h3>
+		
+		제목 : <jsp:getProperty property="title" name="book1" /> <br>
+		저자 : <jsp:getProperty property="writer" name="book1" /> <br>
+	
 	</div>
 </body>
 </html>
