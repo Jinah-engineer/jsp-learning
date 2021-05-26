@@ -3,7 +3,6 @@ package sample1;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,16 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BoardListServlet
+ * Servlet implementation class BoardDetailServlet
  */
-@WebServlet("/sample1/list")
-public class BoardListServlet extends HttpServlet {
+@WebServlet("/sample1/detail")
+public class BoardDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardListServlet() {
+    public BoardDetailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,20 +31,20 @@ public class BoardListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
+		String index = request.getParameter("index");
+		
+		System.out.println(index);
+		
 		ServletContext application = request.getServletContext();
 		List<Board> list = (List<Board>) application.getAttribute("boards");
 		
-		request.setAttribute("list", list);
-
-		String path = "/WEB-INF/sample1/BoardList.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		dispatcher.forward(request, response);
+		int i = Integer.parseInt(index);
+		Board board = list.get(i);
 		
-//		for(Board board : list) {
-//			out.print("<li>");
-//			out.print(board.getTitle());
-//			out.print("</li>");
-//		}
+		request.setAttribute("board", board);
+		
+		String path = "/WEB-INF/sample1/boardDetail.jsp";
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**
