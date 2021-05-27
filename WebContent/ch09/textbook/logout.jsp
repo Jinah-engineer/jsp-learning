@@ -13,10 +13,10 @@
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
-<title>로그아웃e</title>
+<title>로그아웃</title>
 </head>
 <body>
-<div class="container">
+<div class="container">m
 	로그아웃하였습니다.
 </div>
 </body>

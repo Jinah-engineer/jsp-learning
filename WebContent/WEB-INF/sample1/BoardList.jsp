@@ -18,10 +18,7 @@
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp"%>
 
 <script>
-	$(document).ready(function() {
-		$("#button2").click(function() {
-		});
-	});
+	
 </script>
 
 <title>Insert title here</title>
@@ -33,7 +30,7 @@
 	<div class="container mt-5">
 		<div class="row justify-content-center">
 			<div class="col-8">
-			<form method="post">
+			<form action="${pageContext.request.contextPath }/sample1/remove" id="form1" method="post">
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
@@ -46,7 +43,7 @@
 					</thead>
 					<tbody>
 						<c:forEach items="${list }" var="board" varStatus="status">
-							<tr>
+							<tr id="check1">
 								<td><input name="remove" value="${status.index }" type="checkbox"/></td>
 								<td>${status.count }</td>
 								<td><a href="detail?index=${status.index }">${board.title }</a></td>
