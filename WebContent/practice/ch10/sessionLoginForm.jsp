@@ -1,21 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*" %>
-<%@ page import="ch08.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
-
-<%
-	// <jsp:useBean> 와 같은 기능 
-	Book book = new Book();
-	
-	// <jsp:setProperty> 와 같은 기능
-	book.setTitle("자바책");
-	book.setWriter("신용권");
-	
-	request.setAttribute("book1", book);
-%>
 
 <!DOCTYPE html>
 <html>
@@ -24,16 +12,19 @@
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login Form</title>
 </head>
 <body>
 	<div class="container">
 		<%
-			Book book1 = (Book) request.getAttribute("book1");
+			String id = (String) session.getAttribute("id");
+			String pw = (String) session.getAttribute("pw");
 		%>
-		
-		제목 : <%= book1.getTitle() %> <br>
-		저자 : <%= book1.getWriter() %> <br>
+		<form action="<%=request.getContextPath() %>/practice/ch10/sessionLogin.jsp" method="post">
+			아이디 : <input type="text" name="id" size="10">
+			암호 : <input type="text" name="pw" size="10">
+			<input type="submit" value="Login">		
+		</form>
 		
 	</div>
 </body>

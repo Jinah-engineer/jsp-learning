@@ -1,21 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*" %>
-<%@ page import="ch08.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
-
-<%
-	// <jsp:useBean> 와 같은 기능 
-	Book book = new Book();
-	
-	// <jsp:setProperty> 와 같은 기능
-	book.setTitle("자바책");
-	book.setWriter("신용권");
-	
-	request.setAttribute("book1", book);
-%>
 
 <!DOCTYPE html>
 <html>
@@ -28,12 +16,20 @@
 </head>
 <body>
 	<div class="container">
+		
+		<h1>Session 2</h1>
+		
 		<%
-			Book book1 = (Book) request.getAttribute("book1");
+			Object o = session.getAttribute("jinah");
+			String s = (String) o;
+			
+			Object a = request.getAttribute("eunwoo");
+			String b = (String) a;
+			
 		%>
 		
-		제목 : <%= book1.getTitle() %> <br>
-		저자 : <%= book1.getWriter() %> <br>
+		jinah : <%= s %> <br>
+		eunwoo : <%= b %>
 		
 	</div>
 </body>

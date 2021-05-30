@@ -29,6 +29,12 @@
  	
 </div>
 
+<%--
+	scope1 파일을 실행하고
+	scope3 파일을 실행할 경우, 
+	jsp property 가 setProperty를 통해서 값이 저장되는 것이 맞는지 
+	그래서 이후에 scope3 파일에서 일부만 값이 출력되는 것이 맞는지 
+ --%>
 
 </body>
 </html>

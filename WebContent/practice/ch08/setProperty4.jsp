@@ -6,17 +6,6 @@
 
 <% request.setCharacterEncoding("utf-8"); %>
 
-<%
-	// <jsp:useBean> 와 같은 기능 
-	Book book = new Book();
-	
-	// <jsp:setProperty> 와 같은 기능
-	book.setTitle("자바책");
-	book.setWriter("신용권");
-	
-	request.setAttribute("book1", book);
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,12 +17,13 @@
 </head>
 <body>
 	<div class="container">
-		<%
-			Book book1 = (Book) request.getAttribute("book1");
-		%>
 		
-		제목 : <%= book1.getTitle() %> <br>
-		저자 : <%= book1.getWriter() %> <br>
+		<form action="setProperty5.jsp" method="post">
+			제목 : <input type="text" name="title" /> <br>
+			저자 : <input type="text" name="writer"/> <br>
+			가격 : <input type="number" name="price" /> <br>
+			<input type="submit" value="등록" />
+		</form>
 		
 	</div>
 </body>

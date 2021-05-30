@@ -4,7 +4,7 @@
 <% request.setCharacterEncoding("utf-8"); %>
 
 <%-- useBean 안에 setProperty가 있을 수도 있다. --%>
-<jsp:useBean id="book" class=ch08.Book">
+<jsp:useBean id="book" class="ch08.Book">
 	<jsp:setProperty name="book" property="title" value="JAVA" />
 </jsp:useBean>
 

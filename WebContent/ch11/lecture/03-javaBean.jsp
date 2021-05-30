@@ -12,7 +12,7 @@
 %>
 
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>

@@ -19,7 +19,8 @@
 <%--
 	생성한 자바빈 객체의 property 값을 변경한다.
  --%>
-<jsp:setProperty name="book1" property="title" value="책" />
+ <!-- ?? param 값은 어떻게 연결되는지??  -->
+<jsp:setProperty name="book1" property="title" param="책"/>
 <jsp:setProperty name="book1" property="writer" value="저자" />
 
 <!DOCTYPE html>

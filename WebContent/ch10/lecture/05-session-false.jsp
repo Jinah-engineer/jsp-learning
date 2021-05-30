@@ -4,7 +4,7 @@
 <% request.setCharacterEncoding("utf-8"); %>
 <%
 	//session.setAttribute("a", "b");
-	HttpSession session = request.getSession(); // 자동으로 생성되지 않는 session은 request로 부터 생성이 가능하다. 
+	HttpSession s = request.getSession(); // 자동으로 생성되지 않는 session은 request로 부터 생성이 가능하다. 
 	session.setAttribute("a", "b");
 %>
 <!DOCTYPE html>

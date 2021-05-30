@@ -6,16 +6,13 @@
 
 <% request.setCharacterEncoding("utf-8"); %>
 
-<%
-	// <jsp:useBean> 와 같은 기능 
-	Book book = new Book();
-	
-	// <jsp:setProperty> 와 같은 기능
-	book.setTitle("자바책");
-	book.setWriter("신용권");
-	
-	request.setAttribute("book1", book);
-%>
+<%-- page --%>
+<jsp:useBean id="book1" scope="page" class="ch08.Book" />
+<jsp:setProperty name="book1" property="title" value="Spring" />
+
+<%-- request --%>
+<jsp:useBean id="book2" scope="request" class="ch08.Book" />
+<jsp:setProperty name="book2" property="title" value="WEB" />
 
 <!DOCTYPE html>
 <html>
@@ -24,17 +21,16 @@
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Scope1</title>
 </head>
 <body>
 	<div class="container">
-		<%
-			Book book1 = (Book) request.getAttribute("book1");
-		%>
 		
-		제목 : <%= book1.getTitle() %> <br>
-		저자 : <%= book1.getWriter() %> <br>
+		책 1 제목 : <jsp:getProperty property="title" name="book1" /> <br>
+		책 2 제목 : <jsp:getProperty property="title" name="book2" />
 		
 	</div>
+	
+	<jsp:include page="scope2.jsp" />
 </body>
 </html>

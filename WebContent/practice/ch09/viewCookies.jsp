@@ -1,21 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*" %>
-<%@ page import="ch08.*" %>
+<%@ page import="java.net.URLDecoder" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
-
-<%
-	// <jsp:useBean> 와 같은 기능 
-	Book book = new Book();
-	
-	// <jsp:setProperty> 와 같은 기능
-	book.setTitle("자바책");
-	book.setWriter("신용권");
-	
-	request.setAttribute("book1", book);
-%>
 
 <!DOCTYPE html>
 <html>
@@ -24,16 +13,28 @@
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>쿠키 목록</title>
 </head>
 <body>
 	<div class="container">
-		<%
-			Book book1 = (Book) request.getAttribute("book1");
-		%>
 		
-		제목 : <%= book1.getTitle() %> <br>
-		저자 : <%= book1.getWriter() %> <br>
+		쿠키 목록 <br>
+		<%
+			Cookie[] cookies = request.getCookies();
+			if (cookies != null && cookies.length > 0) {
+				for (int i = 0; i < cookies.length; i++) {
+					
+		%>
+			<%= cookies[i].getName() %> = 
+			<%= URLDecoder.decode(cookies[i].getValue(), "utf-8") %>
+		<%
+				}
+			} else {
+		%>
+		쿠키가 존재하지 않습니다.
+		<%
+			}
+		%>
 		
 	</div>
 </body>

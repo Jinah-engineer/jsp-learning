@@ -1,20 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*" %>
-<%@ page import="ch08.*" %>
+<%@ page import="java.net.URLEncoder" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
 
 <%
-	// <jsp:useBean> 와 같은 기능 
-	Book book = new Book();
-	
-	// <jsp:setProperty> 와 같은 기능
-	book.setTitle("자바책");
-	book.setWriter("신용권");
-	
-	request.setAttribute("book1", book);
+	Cookie cookie = new Cookie("name", URLEncoder.encode("박진아쿠키", "utf-8"));
+	response.addCookie(cookie);
 %>
 
 <!DOCTYPE html>
@@ -24,16 +18,12 @@
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MAKE COOKIE</title>
 </head>
 <body>
 	<div class="container">
-		<%
-			Book book1 = (Book) request.getAttribute("book1");
-		%>
 		
-		제목 : <%= book1.getTitle() %> <br>
-		저자 : <%= book1.getWriter() %> <br>
+		<%= cookie.getName() %> 쿠키의 값 = "<%= cookie.getValue() %>"
 		
 	</div>
 </body>
