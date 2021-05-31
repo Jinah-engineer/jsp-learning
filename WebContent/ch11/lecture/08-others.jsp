@@ -30,7 +30,7 @@
 		method : ${myReq.method }
 		
 		<br>
-		reqiestedSessionId : ${myReq.requestedSessionId }
+		requestedSessionId : ${myReq.requestedSessionId }
 		
 	</div>
 </body>
