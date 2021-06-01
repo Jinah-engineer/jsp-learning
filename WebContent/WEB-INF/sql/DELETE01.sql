@@ -11,3 +11,5 @@ WHERE
 
 SELECT * FROM Customers
 WHERE Country = 'Norway';
+
+DESC Customers;
