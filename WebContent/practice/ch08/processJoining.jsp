@@ -8,8 +8,15 @@
 <jsp:useBean id="memberInfo" class="ch08.MemberInfo" />
 
 <jsp:setProperty name="memberInfo" property="*" />
-<jsp:setProperty name="memberInfo" property="password"
-	value="<%= memberInfo.getId() %>" />
+<%--
+<jsp:setProperty name="memberInfo" property="id" param="id"/>
+<jsp:setProperty name="memberInfo" property="password" param="password"/>
+<jsp:setProperty name="memberInfo" property="name" param="name"/>
+<jsp:setProperty name="memberInfo" property="registerDate" param="registerDate"/>
+<jsp:setProperty name="memberInfo" property="email" param="email"/>
+ --%>
+
+<jsp:setProperty name="memberInfo" property="password" value="<%= memberInfo.getId() %>" />
 
 <!DOCTYPE html>
 <html>

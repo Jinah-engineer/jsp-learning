@@ -10,6 +10,13 @@ public class Customer {
 	private String postalCode;
 	private String country;
 	
+	
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", name=" + name + ", contactName=" + contactName + ", address=" + address
+				+ ", city=" + city + ", postalCode=" + postalCode + ", country=" + country + "]";
+	}
+	
 	public String getName() {
 		return name;
 	}

@@ -9,8 +9,9 @@
 	String id = request.getParameter("id");
 	String password = request.getParameter("password");
 	
-	session.setAttribute("id", "jinah");
-	session.setAttribute("pw", "jenny");
+	if (id.equals(password)) {
+		session.setAttribute("MEMBERID", id);
+	%>
 %>
 
 <!DOCTYPE html>
