@@ -1,0 +1,33 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="s2" tagdir="/WEB-INF/tags/sample2"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp"%>
+
+<meta charset="UTF-8">
+<title>Login JSP File</title>
+</head>
+<body>
+	<div class="container">
+
+		<h1>로그인</h1>
+
+		<form method="post"
+			action="${pageContext.request.contextPath }/sample2/login">
+			ID : <br> <input type="text" name="id"> <br>
+			Password : <br> <input type="password" name="password">
+			<br> <input type="submit" value="Login">
+		</form>
+
+		<c:if test="${not empty message }">
+			<div>${message }</div>
+		</c:if>
+
+	</div>
+</body>
+</html>
