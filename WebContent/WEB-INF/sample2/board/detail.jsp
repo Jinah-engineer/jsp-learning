@@ -10,16 +10,25 @@
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
 <meta charset="UTF-8">
-<title>Main JSP File</title>
+<title>Board Detail</title>
 </head>
 <body>
 	<div class="container">
-		
 		<s2:navbar />
 		
-		<h1>Welcome!</h1>
-		<a href="<%= request.getContextPath() %>/sample2/member/signup">회원가입 링크</a>
+		<h1>글 보기</h1>
 		
+			제목 : <br>
+			<input type="text" name="title" value="${board.title}" readonly> <br>
+			
+			본문 : <br>
+			<textarea name="body" readonly>${board.body }</textarea> <br>
+			
+			작성자 : <br>
+			<input type="text" value="${board.memberIdHidden }" readonly> <br>
+			
+			작성시간 : <br>
+			<input type="text" value="${board.timeAgo }" readonly>
 	</div>
 </body>
 </html>

@@ -10,16 +10,27 @@
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
 <meta charset="UTF-8">
-<title>Main JSP File</title>
+<title>Write JSP File</title>
 </head>
 <body>
+	
+	<s2:navbar />
+	
 	<div class="container">
+	
+		<h1>글 작성하기</h1>
+		<form action="${pageContext.request.contextPath }/sample2/board/write" method="post">
 		
-		<s2:navbar />
-		
-		<h1>Welcome!</h1>
-		<a href="<%= request.getContextPath() %>/sample2/member/signup">회원가입 링크</a>
-		
+			제목 : <br>
+			<input type="text" name="title" id="input1"> <br>
+			
+			본문 : <br>
+			<textarea name="body" id="textarea1"></textarea> <br>
+			
+			<input type="submit" value="작성">
+			
+		</form>
+			
 	</div>
 </body>
 </html>

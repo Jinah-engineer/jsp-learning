@@ -38,9 +38,10 @@
 </head>
 <body>
 	<div class="container">
+		<s2:navbar />
 
 		<form id="form1"
-			action="${pageContext.request.contextPath }/sample2/modify"
+			action="${pageContext.request.contextPath }/sample2/member/modify"
 			method="post">
 			ID : <br> <input id="input1" type="text" name="id"
 				value="${member.id }" readonly> <br> Password : <br>

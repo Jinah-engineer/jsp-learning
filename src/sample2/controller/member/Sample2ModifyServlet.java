@@ -1,4 +1,4 @@
-package sample2.controller;
+package sample2.controller.member;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import sample2.bean.Member;
 import sample2.dao.MemberDao;
 
-@WebServlet("/sample2/modify")
+@WebServlet("/sample2/member/modify")
 public class Sample2ModifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -25,8 +25,6 @@ public class Sample2ModifyServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setCharacterEncoding("utf-8");
 		
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
@@ -55,7 +53,7 @@ public class Sample2ModifyServlet extends HttpServlet {
 		request.setAttribute("message", message);
 		request.setAttribute("member", member);
 		
-		String path = "/WEB-INF/sample2/info.jsp";
+		String path = "/WEB-INF/sample2/member/info.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 		
 	}

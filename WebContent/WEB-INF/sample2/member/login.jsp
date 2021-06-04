@@ -14,11 +14,12 @@
 </head>
 <body>
 	<div class="container">
+		<s2:navbar />
 
 		<h1>로그인</h1>
 
 		<form method="post"
-			action="${pageContext.request.contextPath }/sample2/login">
+			action="${pageContext.request.contextPath }/sample2/member/login">
 			ID : <br> <input type="text" name="id"> <br>
 			Password : <br> <input type="password" name="password">
 			<br> <input type="submit" value="Login">
