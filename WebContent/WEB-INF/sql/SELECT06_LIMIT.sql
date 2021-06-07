@@ -1,6 +1,6 @@
 SELECT * FROM Customers;
 
--- 10개의 recored만 노출시키기
+-- 10개의 record만 노출시키기
 SELECT * FROM Customers
 LIMIT 10; 
 

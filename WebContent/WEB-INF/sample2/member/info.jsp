@@ -34,22 +34,24 @@
 		});
 	});
 </script>
-
 </head>
+
 <body>
 	<div class="container">
 		<s2:navbar />
 
-		<form id="form1"
-			action="${pageContext.request.contextPath }/sample2/member/modify"
-			method="post">
-			ID : <br> <input id="input1" type="text" name="id"
-				value="${member.id }" readonly> <br> Password : <br>
-			<input id="input2" type="password" name="password"
-				value="${member.password }" readonly> <br> Name : <br>
-			<input id="input3" type="text" name="name" value="${member.name }"
-				readonly> <br> Birth Day : <br> <input id="input4"
-				type="date" name="birth" value="${member.birth }" readonly>
+		<form id="form1" action="${pageContext.request.contextPath }/sample2/member/modify" method="post">
+		
+			ID : <br> 
+			<input id="input1" type="text" name="id" value="${member.id }" readonly> <br> 
+			
+			Password : <br> 
+			<input id="input2" type="password" name="password" value="${member.password }" readonly> <br> 
+			
+			Name : <br>
+			<input id="input3" type="text" name="name" value="${member.name }" readonly> <br> 
+			
+			Birth Day : <br> <input id="input4" type="date" name="birth" value="${member.birth }" readonly>
 			<br>
 
 			<button id="button1" type="button">수정</button>

@@ -240,7 +240,7 @@ public class MemberDao {
 	}
 	
 	public boolean existsID(String id) {
-String sql = "SELECT id FROM Member WHERE id = ?";
+		String sql = "SELECT id FROM Member WHERE id = ?";
 		
 		ResultSet rs = null;
 		try (

@@ -30,10 +30,10 @@
 			<tbody>
 				<c:forEach items="${boards }" var="board">
 					<tr>
-						<td>${board.id }</td>
+						<td>${board.boardId }</td>
 						<td><a
-							href="${pageContext.request.contextPath }/sample2/board/detail?id=${board.id}">${board.title }</a></td>
-						<td>${board.memberIdHidden }</td>
+							href="${pageContext.request.contextPath }/sample2/board/detail?id=${board.boardId}">${board.title }</a></td>
+						<td>${board.memberName }</td>
 						<td>${board.timeAgo }</td>
 					</tr>
 				</c:forEach>

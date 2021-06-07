@@ -16,7 +16,7 @@
 	<div class="container">
 		<s2:navbar />
 		
-		<h1>글 보기</h1>
+		<h1>${board.boardId }번 글 보기</h1>
 		
 			제목 : <br>
 			<input type="text" name="title" value="${board.title}" readonly> <br>
@@ -25,7 +25,7 @@
 			<textarea name="body" readonly>${board.body }</textarea> <br>
 			
 			작성자 : <br>
-			<input type="text" value="${board.memberIdHidden }" readonly> <br>
+			<input type="text" value="${board.memberName }" readonly> <br>
 			
 			작성시간 : <br>
 			<input type="text" value="${board.timeAgo }" readonly>

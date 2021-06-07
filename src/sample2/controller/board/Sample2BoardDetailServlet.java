@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import sample2.bean.Board;
+import sample2.bean.BoardDto;
 import sample2.dao.BoardDao;
 
 @WebServlet("/sample2/board/detail")
@@ -28,7 +29,7 @@ public class Sample2BoardDetailServlet extends HttpServlet {
 		} else {
 		
 		BoardDao dao = new BoardDao();
-		Board board = dao.getId(Integer.parseInt(id));
+		BoardDto board = dao.getIdJoin(Integer.parseInt(id));
 		
 		request.setAttribute("board", board);
 

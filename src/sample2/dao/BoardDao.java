@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sample2.bean.Board;
+import sample2.bean.BoardDto;
 
 public class BoardDao {
 
@@ -94,6 +95,46 @@ public class BoardDao {
 		return list;
 	}
 
+	
+	public List<BoardDto> listJoin() {
+
+		List<BoardDto> list = new ArrayList<BoardDto>();
+
+		String sql = "SELECT b.id boardId, "
+				+ "          b.title title, "
+				+ "          m.name name, "
+				+ "          b.inserted "
+				// Board 테이블의 memberId와 Member 테이블의 id가 같은 Record를 조회한다
+				+ "FROM Board b "
+				+ "JOIN Member m "
+				+ "ON b.memberId = m.id "
+				+ "ORDER BY boardId DESC ";
+
+		try (
+				Connection con = DriverManager.getConnection(url, user, password);
+				Statement stmt = con.createStatement();
+				ResultSet rs = stmt.executeQuery(sql);
+				
+				) {
+
+			while (rs.next()) {
+				BoardDto board = new BoardDto();
+				
+				board.setBoardId(rs.getInt(1));
+				board.setTitle(rs.getString(2));
+				board.setMemberName(rs.getString(3));
+				board.setInserted(rs.getTimestamp(4));
+				
+				list.add(board);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+	
 	public Board getId(int id) {
 
 		String sql = "SELECT id, title, body, memberId, inserted " 
@@ -141,6 +182,57 @@ public class BoardDao {
 		return null;
 	}
 
+	
+	public BoardDto getIdJoin(int id) {
+
+		String sql = "SELECT b.id boardId, " 
+				+ "          b.title title, "
+				+ "          b.body body, "
+				+ "          m.name memberName, "
+				+ "          b.inserted "
+				+ "FROM Board b JOIN Member m "
+				+ "ON b.memberId = m.id "
+				+ "WHERE b.id = ?";
+		
+		ResultSet rs = null;
+
+		try (
+				Connection con = DriverManager.getConnection(url, user, password);
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				) {
+			
+			pstmt.setInt(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				
+				BoardDto board = new BoardDto();
+				
+				board.setBoardId(rs.getInt(1));
+				board.setTitle(rs.getString(2));
+				board.setBody(rs.getString(3));
+				board.setMemberName(rs.getString(4));
+				board.setInserted(rs.getTimestamp(5));
+				
+				return board;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+
+		return null;
+	}
 
 
 }

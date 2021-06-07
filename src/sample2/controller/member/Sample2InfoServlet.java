@@ -26,11 +26,10 @@ public class Sample2InfoServlet extends HttpServlet {
 
 		Member member = (Member) session.getAttribute("userLogined");
 
-		// member가 null이 아니라는 것이 어떤 것인지 ?? 
 		if (member != null) {
 
 			MemberDao dao = new MemberDao();
-			Member mem = dao.getMember(member.getId()); // getMember(id) ? 
+			Member mem = dao.getMember(member.getId()); 
 
 			request.setAttribute("member", mem);
 
