@@ -9,8 +9,16 @@ public class BoardDto {
 	private String title;
 	private String body;
 	private String memberName;
+	private String memberId;
 	private Timestamp inserted;
 	
+	
+	public String getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
 	public int getBoardId() {
 		return boardId;
 	}

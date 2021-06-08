@@ -13,3 +13,5 @@ SELECT * FROM Customers
 WHERE Country = 'Norway';
 
 DESC Customers;
+
+DESC Board;

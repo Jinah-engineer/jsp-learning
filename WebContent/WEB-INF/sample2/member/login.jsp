@@ -24,9 +24,8 @@
 			<br> <input type="submit" value="Login">
 		</form>
 
-		<c:if test="${not empty message }">
-			<div>${message }</div>
-		</c:if>
+		<s2:message />
+
 
 	</div>
 </body>

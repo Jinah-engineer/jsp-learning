@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sample2.bean.Member;
+import sample2.util.DBConnection;
 
 public class MemberDao {
 
@@ -222,12 +223,11 @@ public class MemberDao {
 	}
 
 
-	public void remove(String id) {
+	public void remove(String id, Connection con) {
 		
 	String sql = "DELETE FROM Member WHERE id = ?";
 		
 		try (
-			Connection con = DriverManager.getConnection(url, user, password);
 			PreparedStatement pstmt = con.prepareStatement(sql);
 				) {
 			

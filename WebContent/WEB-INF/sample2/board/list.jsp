@@ -17,6 +17,8 @@
 		<s2:navbar />
 
 		<h1>글 목록</h1>
+		
+		<s2:message />
 
 		<table class="table table-striped">
 			<thead>
