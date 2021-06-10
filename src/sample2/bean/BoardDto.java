@@ -10,7 +10,11 @@ public class BoardDto {
 	private String body;
 	private String memberName;
 	private String memberId;
+	private int numberOfComment;
 	private Timestamp inserted;
+	
+	public int getNumberOfComment() { return numberOfComment; }
+	public void setNumberOfComment(int numberOfComment) { this.numberOfComment = numberOfComment; }
 	
 	public String getMemberId() { return memberId; }
 	public void setMemberId(String memberId) { this.memberId = memberId; }

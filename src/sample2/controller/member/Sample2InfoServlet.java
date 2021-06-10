@@ -10,15 +10,27 @@ import javax.servlet.http.HttpSession;
 
 import sample2.bean.Member;
 import sample2.dao.MemberDao;
+import sample2.service.member.MemberService;
 
 @WebServlet("/sample2/member/info")
 public class Sample2InfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	// Service Field
+	private MemberService service;
 
 	public Sample2InfoServlet() {
 		super();
 	}
 
+	// Initialization
+	@Override
+	public void init() throws ServletException {
+		super.init();
+		
+		service = new MemberService();
+	}
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// session 생성
@@ -29,7 +41,10 @@ public class Sample2InfoServlet extends HttpServlet {
 		if (member != null) {
 
 			MemberDao dao = new MemberDao();
-			Member mem = dao.getMember(member.getId()); 
+			// Member mem = dao.getMember(member.getId()); 
+			// Member mem = dao.getMemberBoard(member.getId());
+			
+			Member mem = service.getMember(member.getId());
 
 			request.setAttribute("member", mem);
 

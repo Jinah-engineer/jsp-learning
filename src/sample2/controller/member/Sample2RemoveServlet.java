@@ -11,13 +11,13 @@ import javax.servlet.http.HttpSession;
 import sample2.bean.Member;
 import sample2.dao.BoardDao;
 import sample2.dao.MemberDao;
-import sample2.service.member.MemberRemoveService;
+import sample2.service.member.MemberService;
 
 @WebServlet("/sample2/member/remove")
 public class Sample2RemoveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	// service를 field에서 선언
-	private MemberRemoveService service = null;
+	private MemberService service = null;
        
     public Sample2RemoveServlet() {
         super();
@@ -27,7 +27,7 @@ public class Sample2RemoveServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
     	super.init();
-    	this.service = new MemberRemoveService();
+    	this.service = new MemberService();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

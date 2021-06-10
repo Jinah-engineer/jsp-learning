@@ -128,7 +128,7 @@
 				
 			<c:if test="${sessionScope.userLogined.id == comment.memberId }">
 					<button id="comment${comment.id }Button1">수정</button>
-					<button id="comment${comment.id }Button3">전송</button>
+					<button id="comment${comment.id }Button3" hidden>전송</button>
 					<button id="comment${comment.id }Button2">삭제</button>
 			</c:if>				
 			</form>

@@ -34,13 +34,19 @@
 					<tr>
 						<td>${board.boardId }</td>
 						<td><a
-							href="${pageContext.request.contextPath }/sample2/board/detail?id=${board.boardId}">${board.title }</a></td>
+							href="${pageContext.request.contextPath }/sample2/board/detail?id=${board.boardId}">${board.title }</a>
+							<c:if test="${board.numberOfComment ne 0 }">
+								<span>[${board.numberOfComment }]</span>	
+							</c:if>
+						</td>
 						<td>${board.memberName }</td>
 						<td>${board.timeAgo }</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+		
+		작성된 게시글 수 : <span>${totalNum }</span>
 	</div>
 </body>
 </html>

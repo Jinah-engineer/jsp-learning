@@ -13,6 +13,7 @@ CREATE TABLE Board
 DESC Board;
 
 SELECT * FROM Member;
+DESC Member;
 
 SELECT * FROM Board;
 

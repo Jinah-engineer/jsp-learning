@@ -11,7 +11,6 @@ public class CommentService {
 	
 	private static CommentDao dao;
 	
-	// ?????????
 	static {
 		dao = new CommentDao();
 	}
