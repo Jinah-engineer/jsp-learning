@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import sample2.comment.CommentService;
+import sample2.service.comment.CommentService;
 
 @WebServlet("/sample2/comment/remove")
 public class Sample2CommentRemoveServlet extends HttpServlet {

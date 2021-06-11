@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+
+.homeButton {
+	width : 10vw;
+	}
+	
+#main1 {
+	font-family: 'Lobster', cursive;
+	font-size: 150px;
+}
+
+#main2, .nav, #justFont {
+	font-family: 'Stylish', sans-serif;
+	font-size: 20px;
+}
+
+#like {
+	width : 2vw;
+	margin-bottom :20px;
+	margin-left : 10px;
+}

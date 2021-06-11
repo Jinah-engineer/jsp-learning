@@ -14,3 +14,12 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
 	crossorigin="anonymous"></script>
+	
+<!-- Font Awesome (css ver.)-->
+<!-- link href="${pageContext.request.contextPath }/res/css/all.css" rel="stylesheet"-->
+
+<script src="${pageContext.request.contextPath }/res/js/all.js"></script>
+	
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Stylish&display=swap" rel="stylesheet">

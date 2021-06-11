@@ -9,6 +9,9 @@
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
+<!-- Style -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/res/css/style.css">
+
 <meta charset="UTF-8">
 <title>Board Detail</title>
 </head>
@@ -16,21 +19,44 @@
 	<div class="container">
 		<s2:navbar />
 		
-		<h1>${board.boardId }번 글 보기</h1>
+		<!-- 왜 space bar 기능이 되는지? -->
+		<span id="justFont" style="font-size: 50px">${board.boardId }번 글 보기</span>
+		<a href="${pageContext.request.contextPath }/sample2/member/like">
+			<img id="like" class="homeButton" src="${pageContext.request.contextPath }/res/img/like2.png">
+		</a>
+		
+		<!-- Like -->
+		<form action="${pageContext.request.contextPath }/sample2/board/like" method="post">
+			
+		</form>
+		
+		<br>
 		
 		<form id="form1" action="${pageContext.request.contextPath }/sample2/board/modify" method="post">
 		
-			제목 : <br>
-			<input name="title" id="input1" type="text" name="title" value="${board.title}" readonly> <br>
-			
-			본문 : <br>
-			<textarea id="textarea1" name="body" readonly>${board.body }</textarea> <br>
-			
-			작성자 : <br>
-			<input name="memberName" type="text" value="${board.memberName }" readonly> <br>
-			
-			작성시간 : <br>
-			<input name="timeAgo" type="text" value="${board.timeAgo }" readonly>
+		<div class="form-group">
+		    <label for="title">제목</label>
+			<input name="title" class="form-control" id="input1" type="text" name="title" value="${board.title}" readonly> <br>
+  		</div>
+		<br>	
+		
+		<div class="form-group">
+		    <label for="body">본문</label>
+			<textarea class="form-control" id="textarea1" name="body" readonly>${board.body }</textarea> <br>
+  		</div>
+		<br>		
+
+		<div class="form-group">
+		    <label for="memberName">작성자</label>
+			<input name="memberName" class="form-control" type="text" name="title" value="${board.title}" readonly> <br>
+  		</div>
+		<br>	
+		
+		<div class="form-group">
+		    <label for="timeAgo">작성시간</label>
+			<input name="timeAgo" class="form-control" type="text" value="${board.timeAgo }" readonly>
+  		</div>
+		<br>
 			
 			<c:if test="${sessionScope.userLogined.id == board.memberId }">
 			
@@ -60,13 +86,13 @@
 				</script>
 				
 				<br>
-				<input type="number" value="${board.boardId }" name="boardId" hidden>
+				<input type="number" class="form-control" value="${board.boardId }" name="boardId" hidden>
 			
-				<button id="button1" type="button">수정</button>
-				
-				<input id="submit1" hidden type="submit" value="전송">
-				
-				<input id="submit2" hidden type="submit" value="삭제">
+				<div class="col-2">
+					<button id="button1" class="btn btn-success" type="button">수정</button> <br>
+					<input id="submit1" class="form-control" hidden type="submit" value="전송">
+					<input id="submit2" class="form-control" hidden type="submit" value="삭제">
+				</div>
 				
 			</c:if>
 		</form>
@@ -78,13 +104,25 @@
 	<c:if test="${not empty sessionScope.userLogined }">
 	<div class="container mt-5">
 		<form action="${pageContext.request.contextPath }/sample2/comment/add" method="post">
-			<textarea name="comment"></textarea>
-			<br>
-			<input hidden name="memberId" value="${sessionScope.userLogined.id }" readonly>
-			<br>
-			<input hidden name="boardId" value="${board.boardId }" readonly>
-			<br>
-			<input type="submit" value="댓글 작성">
+			<div class="col-4">
+				<div class="form-group">
+					<textarea name="comment" class="form-control"></textarea>
+		  		</div>
+		  		<br>
+		  		
+		  		<div class="form-group">
+  				    <label for="memberId">댓쓴이 ID</label>
+					<input name="memberId" class="form-control" type="text" value="${sessionScope.userLogined.id }" readonly>
+		  		</div>
+		  		<br>
+		  		
+		  		<div class="form-group">
+  				    <label for="boardId">댓쓴이의 게시판 ID</label>
+					<input name="boardId" class="form-control" type="text" value="${board.boardId }" readonly>
+		  		</div>
+		  		<br>
+					<input class="form-control" type="submit" value="댓글 작성">
+			</div>
 		</form>
 	</div>
 	</c:if>

@@ -10,15 +10,25 @@ import javax.servlet.http.HttpSession;
 
 import sample2.bean.Member;
 import sample2.dao.MemberDao;
+import sample2.service.member.MemberService;
 
 @WebServlet("/sample2/member/login")
 public class Sample2LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private static MemberService service;
        
     public Sample2LoginServlet() {
         super();
     }
 
+    @Override
+    public void init() throws ServletException {
+    	super.init();
+    	
+    	service = new MemberService();
+    }
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String path = "/WEB-INF/sample2/member/login.jsp";
@@ -34,7 +44,8 @@ public class Sample2LoginServlet extends HttpServlet {
 		MemberDao dao = new MemberDao();
 		
 		// getMember를 통해 return한 'member'를 변수로 선언 
-		Member member = dao.getMember(id);
+		// Member member = dao.getMember(id);
+		Member member = service.getMember(id);
 		
 		if (member != null && member.getPassword().equals(password)) {
 			HttpSession session = request.getSession();

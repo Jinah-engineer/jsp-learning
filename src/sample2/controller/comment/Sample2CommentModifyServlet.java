@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import sample2.bean.Comment;
-import sample2.comment.CommentService;
+import sample2.service.comment.CommentService;
 
 @WebServlet("/sample2/comment/modify")
 public class Sample2CommentModifyServlet extends HttpServlet {

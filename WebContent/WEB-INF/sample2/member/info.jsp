@@ -9,6 +9,9 @@
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp"%>
 
+<!-- Style -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/res/css/style.css">
+
 <meta charset="UTF-8">
 <title>Info JSP File</title>
 
@@ -39,7 +42,9 @@
 <body>
 	<div class="container">
 		<s2:navbar />
-
+		
+		<h1 id="justFont" style="font-size: 50px">나의 정보</h1>
+		
 		<form id="form1" action="${pageContext.request.contextPath }/sample2/member/modify" method="post">
 		
 			ID : <br> 

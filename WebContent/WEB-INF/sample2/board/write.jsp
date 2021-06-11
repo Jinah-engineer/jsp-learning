@@ -9,25 +9,39 @@
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
+<!-- Style -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/res/css/style.css">
+
 <meta charset="UTF-8">
 <title>Write JSP File</title>
 </head>
 <body>
 	
+	<div class="container">
 	<s2:navbar />
 	
-	<div class="container">
-	
-		<h1>글 작성하기</h1>
+		<h1 id="justFont" style="font-size: 50px">글쓰기</h1>
 		<form action="${pageContext.request.contextPath }/sample2/board/write" method="post">
-		
-			제목 : <br>
-			<input type="text" name="title" id="input1"> <br>
+			<div class="form-group">
+			    <label for="title">제목</label>
+			    <input type="text" class="form-control" id="input1" name="title">
+			    <small id="texthelp" class="form-text text-muted">글자 수 제한은 어떻게 넣지</small>
+		  	</div>
+		  	
+			<br>
 			
-			본문 : <br>
-			<textarea name="body" id="textarea1"></textarea> <br>
+			<div class="form-group">
+			    <label for="body">본문</label>
+				<textarea name="body" class="form-control" id="textarea1"></textarea> <br>
+			    <small id="bodyhelp" class="form-text text-muted">글자 수 제한은 어떻게 넣지</small>
+		  	</div>
 			
-			<input type="submit" value="작성">
+			<br>
+			
+			<!-- 버튼 이미지 어떻게 넣지 -->
+			<input type="submit" value="게시하기">
+			
+			
 			
 		</form>
 			

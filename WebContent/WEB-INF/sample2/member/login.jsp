@@ -9,6 +9,9 @@
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp"%>
 
+<!-- Style -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/res/css/style.css">
+
 <meta charset="UTF-8">
 <title>Login JSP File</title>
 </head>
@@ -16,12 +19,21 @@
 	<div class="container">
 		<s2:navbar />
 
-		<h1>로그인</h1>
-
+		<h1 id="justFont" style="font-size: 50px">로그인</h1>
+		
 		<form method="post" action="${pageContext.request.contextPath }/sample2/member/login">
-			ID : <br> <input type="text" name="id"> <br>
-			Password : <br> <input type="password" name="password">
-			<br> <input type="submit" value="Login">
+		<div class="form-group">
+			<label for="input1">ID</label>
+			<input class="form-control" type="text" name="id" id="input1">
+		</div>
+		
+		<div class="form-group">
+			<label for="input2">Password</label>
+			<input class="form-control" type="password" name="password" id="input2">
+		</div>
+		
+			<br> <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login</button>
+			
 		</form>
 
 		<s2:message />

@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import sample2.bean.Comment;
-import sample2.service.comment.CommentAddService;
+import sample2.service.comment.CommentService;
 
 @WebServlet("/sample2/comment/add")
 public class Sample2CommentAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
 	// Service Field
-	private CommentAddService service;
+	private CommentService service;
 	
     public Sample2CommentAddServlet() {
         super();
@@ -25,7 +25,7 @@ public class Sample2CommentAddServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
     	super.init();
-		service = new CommentAddService();
+		service = new CommentService();
 
     }
     

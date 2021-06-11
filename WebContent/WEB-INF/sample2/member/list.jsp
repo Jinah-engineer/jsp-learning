@@ -9,14 +9,15 @@
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp"%>
 
+<!-- Style -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/res/css/style.css">
+
 <meta charset="UTF-8">
 <title>List JSP File</title>
 </head>
 <body>
-
-	<s2:navbar></s2:navbar>
-
 	<div class="container">
+	<s2:navbar></s2:navbar>
 		<table class="table">
 			<thead>
 				<tr>

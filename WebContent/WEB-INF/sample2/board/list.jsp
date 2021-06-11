@@ -9,14 +9,17 @@
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp"%>
 
+<!-- Style -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/res/css/style.css">
+
 <meta charset="UTF-8">
 <title>List JSP File</title>
 </head>
 <body>
 	<div class="container">
 		<s2:navbar />
-
-		<h1>글 목록</h1>
+		
+		<h1 id="justFont" style="font-size: 50px">게시글 목록</h1>
 		
 		<s2:message />
 
@@ -36,7 +39,10 @@
 						<td><a
 							href="${pageContext.request.contextPath }/sample2/board/detail?id=${board.boardId}">${board.title }</a>
 							<c:if test="${board.numberOfComment ne 0 }">
-								<span>[${board.numberOfComment }]</span>	
+								  <span class="fa-layers fa-fw" style="background:MistyRose">
+								    <i class="fas fa-envelope" style="color:pink"></i>
+								    <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-4" style="color:black">${board.numberOfComment }</span>
+								  </span>
 							</c:if>
 						</td>
 						<td>${board.memberName }</td>
@@ -46,7 +52,7 @@
 			</tbody>
 		</table>
 		
-		작성된 게시글 수 : <span>${totalNum }</span>
+		작성된 게시글 수 : <span>${boardTotalNum }</span>
 	</div>
 </body>
 </html>

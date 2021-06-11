@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import sample2.bean.BoardDto;
 import sample2.bean.Comment;
-import sample2.comment.CommentService;
 import sample2.dao.BoardDao;
+import sample2.service.comment.CommentService;
 
 @WebServlet("/sample2/board/detail")
 public class Sample2BoardDetailServlet extends HttpServlet {
@@ -45,7 +45,7 @@ public class Sample2BoardDetailServlet extends HttpServlet {
 		BoardDto board = dao.getIdJoin(Integer.parseInt(id));
 		
 		// Service Logic
-		List<Comment> commentList = CommentService.list(Integer.parseInt(id));
+		List<Comment> commentList = commentService.list(Integer.parseInt(id));
 		
 		// setAttribute
 		request.setAttribute("board", board);

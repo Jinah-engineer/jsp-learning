@@ -9,6 +9,9 @@
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp"%>
 
+<!-- Style -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/res/css/style.css">
+
 <meta charset="UTF-8">
 <title>Sign Up JSP File</title>
 
@@ -37,23 +40,42 @@
 
 </head>
 <body>
+
 	<div class="container">
-
-		<form action="${pageContext.request.contextPath }/sample2/member/signup"
-			method="post">
-			ID : <br> <input id="input1" type="text" name="id">
-			<button id="button1" type="button">중복확인</button>
-			<span id="span1"></span>
-			<br> Password : <br> <input type="password" name="password">
-			<br> Name : <br> <input type="text" name="name"> <br>
-			Birth Day : <br> <input type="date" name="birth"> <br>
-
-			<input type="submit" value="가입">
-
-		</form>
+	<s2:navbar />
+	<h1 id="justFont" style="font-size: 50px">회원가입</h1>
+	<form action="${pageContext.request.contextPath }/sample2/member/signup" method="post">
+		
+		<div class="form-group">
+			<label for="input1">아이디</label>
+			<div class="input-group mb-3">
+			<input id="input1" class="form-control" name="id" type="text">
+			  <div class="input-group-append">
+			    <button class="btn btn-outline-secondary" type="button" id="button1">중복확인</button>
+			  </div>
+			</div>
+			<span class="form-text text-muted" id="span1"></span>
+		</div>
+		
+		<div class="form-group">
+			<label for="input2">패스워드</label>
+			<input id="input2" type="password" name="password" class="form-control">
+		</div>
+		
+		<div class="form-group">
+			<label for="input3">이름</label>
+			<input id="input3" class="form-control" type="text" name="name">
+		</div>
+		
+		<div class="form-group">
+			<label for="input4">생일</label>
+			<input id="input4" class="form-control" type="date" name="birth">
+		</div>
+		
+		<button class="btn btn-primary" type="submit"><i class="fas fa-user-plus"></i>가입</button>
+	</form>
 
 		<s2:message />
-
 
 	</div>
 </body>
